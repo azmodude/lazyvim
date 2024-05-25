@@ -31,20 +31,6 @@ return {
     end,
   },
   {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = function()
-      if not internal.isNix() then
-        -- do a normal install without yarn and npm when not on Nix
-        vim.fn["mkdp#util#install"]()
-      else
-        -- else do a manual install using yarn and npm
-        os.execute("cd " .. vim.fn.stdpath("data") .. "/lazy/markdown-preview.nvim/app && yarn install")
-      end
-    end,
-  },
-  {
     "vimwiki/vimwiki",
     lazy = true,
     event = "BufEnter *.md",
