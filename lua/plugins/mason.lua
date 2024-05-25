@@ -6,28 +6,18 @@ if not internal.isNix() then
   return {
     {
       "williamboman/mason.nvim",
-      opts = {
-        ensure_installed = {
-          -- markdown
-          "marksman",
-          "markdownlint",
-          -- lua
-          "stylua",
-          -- sh
-          "bash-language-server",
-          "shfmt",
-          "shellcheck",
-          "shellharden",
-          -- golang
-          "delve",
-          "gopls",
-          "gofumpt",
-          "golines",
-          -- ansible
-          "ansible-language-server",
-          "ansible-lint",
-        },
-      },
+      opts = function(_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        vim.list_extend(opts.ensure_installed, { "shfmt" })
+        vim.list_extend(opts.ensure_installed, { "shellharden" })
+        vim.list_extend(opts.ensure_installed, { "black" })
+        vim.list_extend(opts.ensure_installed, { "isort" })
+        vim.list_extend(opts.ensure_installed, { "mypy" })
+        vim.list_extend(opts.ensure_installed, { "pylint" })
+        vim.list_extend(opts.ensure_installed, { "pydocstyle" })
+        vim.list_extend(opts.ensure_installed, { "golangci-lint" })
+        vim.list_extend(opts.ensure_installed, { "revive" })
+      end,
     },
   }
 else
