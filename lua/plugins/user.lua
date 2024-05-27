@@ -33,8 +33,7 @@ return {
   {
     "vimwiki/vimwiki",
     lazy = true,
-    event = "BufEnter *.md",
-    keys = { "<leader>ww", "<leader>wt" },
+    cmd = { "VimwikiIndex", "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" },
     init = function()
       vim.g.vimwiki_list = {
         {
