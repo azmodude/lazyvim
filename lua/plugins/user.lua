@@ -18,15 +18,49 @@ return {
   {
     "alexghergh/nvim-tmux-navigation",
     lazy = true,
-    event = "BufEnter",
+    cmd = {
+      "NvimTmuxNavigateLeft",
+      "NvimTmuxNavigateDown",
+      "NvimTmuxNavigateUp",
+      "NvimTmuxNavigateRight",
+      "NvimTmuxNavigateLastActive",
+      "NvimTmuxNavigateNext",
+    },
+    keys = {
+      {
+        "<C-h>",
+        "<cmd>NvimTmuxNavigateLeft<cr>",
+        desc = "Move one nvim/tmux pane to the left",
+      },
+      {
+        "<C-j>",
+        "<cmd>NvimTmuxNavigateDown<cr>",
+        desc = "Move one nvim/tmux pane down",
+      },
+      {
+        "<C-k>",
+        "<cmd>NvimTmuxNavigateUp<cr>",
+        desc = "Move one nvim/tmux pane up",
+      },
+      {
+        "<C-l>",
+        "<cmd>NvimTmuxNavigateRight<cr>",
+        desc = "Move one nvim/tmux pane to the right",
+      },
+      {
+        "<C-\\>",
+        "<cmd>NvimTmuxNavigateLastActive<cr>",
+        desc = "Move to the last active nvim/tmux pane",
+      },
+      {
+        "<C-Space>",
+        "<cmd>NvimTmuxNavigateNext<cr>",
+        desc = "Move to the next nvim/tmux pane",
+      },
+    },
     config = function()
       require("nvim-tmux-navigation").setup({
-        keybindings = {
-          left = "<C-h>",
-          down = "<C-j>",
-          up = "<C-k>",
-          right = "<C-l>",
-        },
+        disable_when_zoomed = false, -- defaults to false
       })
     end,
   },
