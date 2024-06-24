@@ -65,18 +65,20 @@ return {
     end,
   },
   {
-    "vimwiki/vimwiki",
+    "serenevoid/kiwi.nvim",
     lazy = true,
-    cmd = { "VimwikiIndex", "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" },
-    init = function()
-      vim.g.vimwiki_list = {
-        {
-          path = "~/vimwiki/",
-          syntax = "markdown",
-          ext = ".md",
-        },
-      }
-    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>cw", ':lua require("kiwi").open_wiki_index()<cr>', desc = "Open Wiki index" },
+      {
+        "<leader>wp",
+        ':lua require("kiwi").open_wiki_index("personal")<cr>',
+        desc = "Open index of personal wiki",
+      },
+      { "T", ':lua require("kiwi").todo.toggle()<cr>', desc = "Toggle Markdown Task" },
+    },
   },
   {
     "akinsho/nvim-toggleterm.lua",
