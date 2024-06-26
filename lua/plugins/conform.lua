@@ -1,12 +1,8 @@
 return {
   "stevearc/conform.nvim",
-  opts = function()
-    return {
-      formatters_by_ft = {
-        lua = { "stylua" },
-        sh = { "shellharden", "shfmt" },
-        python = { "isort", "black" },
-      },
-    }
+  opts = function(_, opts)
+    opts.formatters_by_ft = opts.formatters_by_ft or {}
+    opts.formatters_by_ft["sh"] = { "shellharden", "shfmt" }
+    opts.formatters_by_ft["python"] = { "isort", "black" }
   end,
 }
