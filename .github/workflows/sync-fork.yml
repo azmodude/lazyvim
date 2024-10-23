@@ -18,6 +18,7 @@ jobs:
           base: main
           head: main
           auto_merge: true
+          ignore_fail: true
 
   sync-fork-azmo:
     runs-on: ubuntu-latest
@@ -30,3 +31,4 @@ jobs:
           head: main
           auto_merge: false
           merge_method: merge
+          ignore_fail: true
