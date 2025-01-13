@@ -2,15 +2,15 @@ local internal = require("../custom/functions")
 
 return {
   { "hiphish/rainbow-delimiters.nvim", lazy = true, event = "BufReadPre" },
-  { "sindrets/diffview.nvim",          lazy = true, cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
+  { "sindrets/diffview.nvim", lazy = true, cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
   {
     "neogitorg/neogit",
     lazy = true,
     cmd = "Neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
+      "nvim-lua/plenary.nvim", -- required
       "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim",        -- optional
+      "sindrets/diffview.nvim", -- optional
     },
     config = true,
   },
